@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
+gem 'bootstrap-sass', '~> 3.0.3.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -39,6 +40,8 @@ group :test do
 end
 
 group :development do
+	gem "better_errors"
+	gem "binding_of_caller"
 end
 
 group :development, :test do

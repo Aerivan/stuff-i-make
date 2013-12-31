@@ -1,7 +1,10 @@
 StuffIMake::Application.routes.draw do
-  get "session/create"
-  get "session/destroy"
   resources :posts
+
+  get 'login' => "session#login"
+  get 'logout' => "session#destroy"
+  post "session/create"
+
 
   root 'posts#index'
 

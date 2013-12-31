@@ -1,0 +1,8 @@
+= form_tag '/session/create'
+	= password_field_tag :password
+
+
+javascript:
+	$(window).ready(function(){
+  	$("#password").focus()
+	})
