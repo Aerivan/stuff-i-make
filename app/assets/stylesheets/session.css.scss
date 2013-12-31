@@ -1,3 +1,26 @@
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#login form {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+
+	@media screen and (max-width: 678px) {
+		width: 100%;
+		left: 0;
+  }
+}
+
+#login input {
+	width: 100%;
+	font-size: 2em;
+	margin-top: -1em;
+	margin-left: -150px;
+
+	@media screen and (max-width: 687px) {
+		margin: 0;
+  }
+}
