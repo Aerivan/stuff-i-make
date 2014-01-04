@@ -1,0 +1,57 @@
+#header {
+	overflow: hidden;
+	text-align: center;
+
+	div#background {
+		background: $dark-bg-color;
+		height: 150px;
+	}
+
+	$portrait_size: 200px;
+	a#portrait {
+		position: relative;
+		display: block;
+		width: $portrait_size;
+		height: $portrait_size;
+		border-radius: ($portrait_size/2);
+		background: orange;
+		margin: 0 auto;
+		margin-top: -($portrait_size/2);
+
+		&:hover {
+			background: lighten(orange, 10);
+		}
+	}
+
+	h1, h2 {
+		background: $light-bg-color;
+		margin: 0;
+	}
+
+	h1, h2, h3, h4 {
+		font-weight: normal;
+	}
+
+	#pre {
+		clear: both;
+		padding-top: 2em;
+		font-size: 3em;
+	}
+
+	#title {
+		font-size: 4em;
+	}
+
+	#name {
+		font-size: 3em;
+		padding-top: 0.2em;
+		padding-bottom: 1em;
+
+		&:before {
+			content: "("
+		}
+		&:after {
+			content: ")"
+		}
+	}
+}

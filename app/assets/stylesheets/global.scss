@@ -1,0 +1,44 @@
+body {
+	color: $text-color;
+	background: $light-bg-color;
+	font-family: helvetica, sans;
+	font-size: 16px;
+	margin: 0;
+}
+
+h1, h2, h3, h4, p {
+	line-height: 1em;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+.container {
+	//background: $light-bg-color;
+	overflow: auto;
+	padding: 0 0.5em;
+}
+
+h1 {
+	font-weight: normal;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+h1 a {
+	text-decoration: none;
+	color: $text-color;
+
+	&:hover {
+		color: $link-color;
+	}
+}

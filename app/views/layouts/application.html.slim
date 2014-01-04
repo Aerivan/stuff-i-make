@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+	  title Stuff Made by Me
+	  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+	  = javascript_include_tag "application", "data-turbolinks-track" => true
+	  = csrf_meta_tags
+
+	body
+		- if flash[:alert]
+		  div class='alert alert-warning'
+		  	= h flash[:alert]
+
+		- if flash[:notice]
+		  div class='alert alert-success'
+		  	= h flash[:notice]
+
+		= yield
+
+		javascript:
+			$('body').flowtype({
+				minimum : 600
+			});

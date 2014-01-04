@@ -28,6 +28,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
+gem 'autoprefixer-rails'
+gem 'flowtype-rails'
+gem 'will_paginate'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -42,10 +45,13 @@ group :development do
 	gem "better_errors"
 	gem "binding_of_caller"
 	gem 'rails_layout'
+  gem 'meta_request'
 end
 
 group :development, :test do
 	gem 'debugger'
+	gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 # Use ActiveModel has_secure_password
