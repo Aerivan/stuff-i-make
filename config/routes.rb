@@ -1,4 +1,6 @@
 StuffIMake::Application.routes.draw do
+  get 'about-me' => "page#about_me"
+
   resources :posts
 
   get 'login' => "session#login"
