@@ -2,12 +2,14 @@ header {
 	overflow: hidden;
 	text-align: center;
 
+	$top-banner-size: 6em;
+
 	div#background {
 		background: $dark-bg-color;
-		height: 150px;
+		height: $top-banner-size;
 	}
 
-	$portrait_size: 200px;
+	$portrait_size: $top-banner-size*1.3;
 	a#portrait {
 		position: relative;
 		display: block;
@@ -34,7 +36,7 @@ header {
 
 	#pre {
 		clear: both;
-		padding-top: 2em;
+		padding-top: 1em;
 		font-size: 3em;
 	}
 
@@ -43,7 +45,7 @@ header {
 	}
 
 	#name {
-		font-size: 3em;
+		font-size: 2.5em;
 		padding-top: 0.2em;
 		padding-bottom: 1em;
 
