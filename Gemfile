@@ -46,6 +46,9 @@ group :development do
 	gem "binding_of_caller"
 	gem 'rails_layout'
   gem 'meta_request'
+  gem 'guard-livereload'
+  gem 'rb-readline  '
+  gem "rack-livereload"
 end
 
 group :development, :test do
