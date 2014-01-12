@@ -2,25 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#login form {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 300px;
-
-	@media screen and (max-width: 678px) {
+#login {
+		width: 90%;
+		margin: 0 auto;
+		margin-bottom: 3em;
+	form {
 		width: 100%;
-		left: 0;
-  }
+
+		/*
+		@media screen and (max-width: 678px) {
+			width: 100%;
+			left: 0;
+	  }
+	  */
+	}
+
+	input {
+		width: 100%;
+		font-size: 2em;
+
+		/*
+		@media screen and (max-width: 687px) {
+			margin: 0;
+	  }
+	  */
+	}
 }
 
-#login input {
-	width: 100%;
-	font-size: 2em;
-	margin-top: -1em;
-	margin-left: -150px;
-
-	@media screen and (max-width: 687px) {
-		margin: 0;
-  }
-}

@@ -6,4 +6,16 @@ class ApplicationController < ActionController::Base
   def admin?
   	session[:admin?] == :yes
   end
+
+  def authenticate
+  	unless admin?
+  		options = { alert: "You are not authorized to view that page." }
+
+  		begin
+  			redirect_to :back, options
+  		rescue ActionController::RedirectBackError => e
+  			redirect_to root_url, options
+  		end
+  	end
+  end
 end

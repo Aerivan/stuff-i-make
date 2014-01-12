@@ -47,7 +47,7 @@ group :development do
 	gem 'rails_layout'
   gem 'meta_request'
   gem 'guard-livereload'
-  gem 'rb-readline  '
+  #gem 'rb-readline'
   gem "rack-livereload"
 end
 
