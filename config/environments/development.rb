@@ -1,6 +1,9 @@
 StuffIMake::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
+  config.middleware.use Rack::LiveReload
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -26,7 +29,4 @@ StuffIMake::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
-  config.middleware.use Rack::LiveReload
 end
