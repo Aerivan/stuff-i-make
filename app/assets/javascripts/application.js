@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require expanding
 //= require flowtype
 //= require turbolinks
 //= require_tree .

@@ -10,3 +10,30 @@
 .post li {
 	display: block;
 }
+
+.edit_post {
+	label {
+		font-size: 3em;
+		line-height: 1em;
+	}
+
+	.field, .actions{
+		width: 90%;
+		margin: 0 auto;
+		padding-bottom: 2em;
+
+		textarea {
+			background: white;
+			border: none;
+			font-size: 1em;
+			line-height: 1em;
+			width: 100%;
+			overflow: hidden;
+			resize: none;
+		}
+
+		textarea.title {
+			font-size: 2em;
+		}
+	}
+}

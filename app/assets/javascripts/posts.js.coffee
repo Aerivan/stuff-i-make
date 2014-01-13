@@ -11,3 +11,9 @@ jQuery ->
                           console.log url
                           $.getScript(url)
     $(window).scroll()
+
+init_expanding_textarea = ->
+	$(".expanding").expandingTextarea();
+
+$(document).ready(init_expanding_textarea)
+$(document).on('page:load', init_expanding_textarea)
