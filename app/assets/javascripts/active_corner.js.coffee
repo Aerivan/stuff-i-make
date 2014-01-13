@@ -72,5 +72,8 @@
 )( jQuery )
 
 # Turn on active corner for the #actions div of the layout.
-jQuery ->
+activate_on_active_corner = ->
 	$('#actions').active_corner({corner: 'bottom-left'})
+
+$(document).ready(activate_on_active_corner)
+$(document).on('page:load', activate_on_active_corner)

@@ -1,4 +1,7 @@
-$('.container').append('<%= j render(@posts) %>');
+<% for post in @posts do %>
+	$('.posts').append("<li><%= j render(post) %></li>");
+<% end %>
+
 <% if @posts.next_page %>
 $('.pagination').replaceWith('<%= j will_paginate(@posts) %>');
 <% else %>

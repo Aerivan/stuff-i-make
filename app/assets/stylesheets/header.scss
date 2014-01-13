@@ -34,19 +34,28 @@ header {
 		font-weight: normal;
 	}
 
-	#pre {
-		clear: both;
-		padding-top: 1em;
-		font-size: 3em;
+	#headlines {
+		#pre {
+			clear: both;
+			margin-top: 1em;
+			font-size: 3em;
+		}
+
+		#title {
+			font-size: 4em;
+		}
+
+		#name {
+			font-size: 2.5em;
+			padding-top: 0.2em;
+			margin-bottom: 1.5em;
+		}
 	}
 
-	#title {
-		font-size: 4em;
-	}
-
-	#name {
-		font-size: 2.5em;
-		padding-top: 0.2em;
-		padding-bottom: 1.5em;
+	.header-link {
+		cursor: pointer;
+		&:hover {
+			color: $link-color;
+		}
 	}
 }

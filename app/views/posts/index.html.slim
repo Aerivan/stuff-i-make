@@ -3,9 +3,8 @@
 
 
 #search
-.container
-	ul.post
+ul.posts.container
+	- for post in @posts do
 		li
-			= render @posts
-
+			= render post
 = will_paginate

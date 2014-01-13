@@ -3,4 +3,5 @@
 
 	== @post.body
 
+- content_for :actions do
 	= link_to 'Edit', edit_post_path(@post) if controller.admin?
