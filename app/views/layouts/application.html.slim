@@ -7,6 +7,9 @@ html
 	  = csrf_meta_tags
 
 	body
+		#actions
+			= yield :actions
+			
 		= render 'shared/header'
 
 		- if flash[:alert]

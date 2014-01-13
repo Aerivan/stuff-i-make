@@ -66,3 +66,19 @@ h1 a {
 .alert-success {
 	@include alert(springgreen);
 }
+
+#actions {
+	font-size: 1.3em;
+	background: #222;
+	color: white;
+	padding: 0.4em;
+	padding-right: 0.6em;
+	padding-bottom: 0.3em;
+	box-shadow: 0 0 0.3em black;
+	border-top-right-radius: 1em;
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}
