@@ -42,3 +42,27 @@ h1 a {
 		color: $link-color;
 	}
 }
+
+@mixin alert($color) {
+	background: $color;
+	$border: 0.1em dotted darken($color, 20);
+	border-top: $border;
+	border-bottom: $border;
+}
+
+.alert {
+	font-size: 1.2em;
+	padding: 1em;
+}
+
+.alert-notice {
+	@include alert(mediumturquoise)
+}
+
+.alert-warning {
+	@include alert(pink);
+}
+
+.alert-success {
+	@include alert(springgreen);
+}
