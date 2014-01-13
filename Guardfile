@@ -20,7 +20,7 @@ guard :annotate do
 end
 
 guard :livereload do
-  watch(%r{^app/.+\.(erb|haml|js|css|scss|sass|coffee|eco|png|gif|jpg)})
+  watch(%r{^app/.+\.(erb|haml|slim|js|css|scss|sass|coffee|eco|png|gif|jpg)})
   watch(%r{^app/helpers/.+\.rb})
   watch(%r{^public/.+\.html})
   watch(%r{^config/locales/.+\.yml})
