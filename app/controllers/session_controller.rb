@@ -3,7 +3,7 @@ class SessionController < ApplicationController
 	end
 
   def create
-  	if params[:password] == ENV['stuff_i_make_password']
+  	if params[:password] == ENV['admin_password']
   		session[:admin?]  = :yes
   		redirect_to root_path, notice: 'Successfully logged in.'
   	else
