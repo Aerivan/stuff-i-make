@@ -1,7 +1,8 @@
-.container
-	h1 == @post.title
+div.container 
+	.post class=('unpublished' unless @post.published?)
+		h1 == @post.title
 
-	== @post.body
+		== @post.body
 
 - content_for :actions do
 	= link_to 'Edit', edit_post_path(@post) if controller.admin?

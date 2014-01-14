@@ -1,5 +1,5 @@
 <% for post in @posts do %>
-	$('.posts').append("<li><%= j render(post) %></li>");
+	$('.posts').append("<li class='post <%='unpublished' unless post.published?%>'><%= j render(post) %></li>");
 <% end %>
 
 <% if @posts.next_page %>

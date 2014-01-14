@@ -8,19 +8,28 @@
 
 	li {
 		display: block;
-		overflow: hidden;
 		margin-bottom: 3em;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
-
-		h1 {
-			margin-top: 0;
-		}
 	}
 }
 
+.post {
+	overflow: hidden;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+
+	h1 {
+		margin-top: 0.2em;
+	}
+}
+
+.unpublished {
+	background: white;
+	font-family: monospace;
+}
 
 .edit_post {
 	label {

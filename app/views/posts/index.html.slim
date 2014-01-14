@@ -5,6 +5,6 @@
 #search
 ul.posts.container
 	- for post in @posts do
-		li
+		li.post class=('unpublished' unless post.published?)
 			= render post
 = will_paginate
