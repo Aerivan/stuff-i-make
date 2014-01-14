@@ -6,9 +6,9 @@ class PostsController < ApplicationController
 	# GET /posts.json
 	def index
 		if admin?
-			@posts = Post.paginate(page: params[:page], per_page: 3)
+			@posts = Post.previews.paginate(page: params[:page], per_page: 3)
 		else
-			@posts = Post.paginate(page: params[:page], per_page: 3).published
+			@posts = Post.previews.paginate(page: params[:page], per_page: 3).published
 		end
 	end
 
