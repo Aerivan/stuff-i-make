@@ -7,9 +7,6 @@ html
 	  = csrf_meta_tags
 
 	body
-		#actions
-			= yield :actions
-			
 		= render 'shared/header'
 
 		- if flash[:alert]
@@ -22,7 +19,5 @@ html
 
 		= yield
 
-		javascript:
-			$('body').flowtype({
-				minimum : 600
-			});
+		#actions
+			= yield :actions

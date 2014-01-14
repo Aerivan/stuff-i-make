@@ -15,4 +15,7 @@
 //= require expanding
 //= require flowtype
 //= require turbolinks
+
+//= require layout
+
 //= require_tree .
