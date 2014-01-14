@@ -69,8 +69,7 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
-    faker (1.2.0)
-      i18n (~> 0.5)
+    ffaker (1.22.1)
     ffi (1.9.3)
     flowtype-rails (1.0.1)
       railties (>= 3.1)
@@ -210,7 +209,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debugger
   factory_girl_rails
-  faker
+  ffaker
   flowtype-rails
   guard-annotate
   guard-bundler
