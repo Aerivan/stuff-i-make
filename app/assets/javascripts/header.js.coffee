@@ -3,7 +3,7 @@ ready = ->
 		window.scrollTo(pageXOffset, $('header').outerHeight())
 
 		$('#headlines').addClass('header-link')
-		$('#headlines').click(() -> window.location = '/')
+		$('#headlines').click(() -> Turbolinks.visit('/'))
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
