@@ -42,20 +42,31 @@
 		margin: 0 auto;
 		padding-bottom: 2em;
 
-		textarea {
+		textarea, .textareaClone {
+			width: 100%;
+			line-height: 1em;
+
 			background: white;
 			border: none;
-			font-size: 1em;
-			line-height: 1em;
-			width: 100%;
-			overflow: hidden;
 			resize: none;
-			min-height: 10em;
-		}
 
-		textarea.title {
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			overflow: hidden;
+		}
+	}
+
+	.field.title {
+		textarea, .textareaClone {
 			font-size: 2em;
 			min-height: 2em;
 		}
 	}
+	.field.body {
+		textarea, .textareaClone {
+			font-size: 1em;
+			min-height: 10em;
+		}
+	}
+
 }
