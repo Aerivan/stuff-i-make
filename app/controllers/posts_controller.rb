@@ -5,11 +5,17 @@ class PostsController < ApplicationController
 	# GET /posts
 	# GET /posts.json
 	def index
-		if admin?
-			@posts = Post.previews.paginate(page: params[:page], per_page: 3)
+		if params[:query].blank?
+			posts = Post.all
 		else
-			@posts = Post.previews.paginate(page: params[:page], per_page: 3).published
+			posts = Post.search(params[:query])
 		end
+
+		unless admin?
+			posts = posts.published
+		end
+
+		@posts = posts.paginate(page: params[:page], per_page: 3)
 	end
 
 	# GET /posts/1

@@ -2,7 +2,9 @@
 	= render 'shared/actions'
 
 
-#search
+form action=(root_url) method='get' id='search'
+	input name='query' type='text' value=(params[:query].blank? ? 'Search' : params[:query]) class='search-box'
+
 ul.posts.container
 	- for post in @posts do
 		li.post class=('unpublished' unless post.published?)
