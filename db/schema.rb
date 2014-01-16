@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115103241) do
+ActiveRecord::Schema.define(version: 20140116080526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,20 @@ ActiveRecord::Schema.define(version: 20140115103241) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.tsvector "tsv_body"
+    t.tsvector "tsv"
   end
 
-  add_index "posts", ["tsv_body"], name: "index_posts_on_tsv_body", using: :gin
+  add_index "posts", ["tsv"], name: "index_posts_on_tsv", using: :gin
 
-  create_trigger("posts_before_insert_update_row_tr", :generated => true, :compatibility => 1).
+  create_trigger("update_tsv_posts", :compatibility => 1).
+      name("update_tsv_posts").
       on("posts").
       before(:insert, :update) do
-    "new.tsv := tsvector_update_trigger(tsv_body, 'pg_catalog.english', body);"
+    <<-SQL_ACTIONS
+new.tsv :=
+     			setweight(to_tsvector('pg_catalog.english', coalesce(new.title,'')), 'A') ||
+     			setweight(to_tsvector('pg_catalog.english', coalesce(new.body,'')), 'D');
+    SQL_ACTIONS
   end
 
 end

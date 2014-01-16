@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 	scope :published, -> { where(published: true) }
 	scope :previews, -> { select("id, title, substring(body from '<p>.*?<\/p>') as body, published, created_at, updated_at") }
 
-	pg_search_scope :search, against: [:title, :body ],
+	pg_search_scope :search, against: {title: 'A', body: 'D' },
 		using: {
 			tsearch: {
 				dictionary: 'english',
@@ -13,8 +13,4 @@ class Post < ActiveRecord::Base
 				tsvector_column: 'tsv'
 			}
 		}
-
-	trigger.before(:insert, :update) do
-		"new.tsv := tsvector_update_trigger(tsv, 'pg_catalog.english', title, body);"
-	end
 end
