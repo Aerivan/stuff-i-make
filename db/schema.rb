@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116122042) do
+ActiveRecord::Schema.define(version: 20140116235026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,58 @@ ActiveRecord::Schema.define(version: 20140116122042) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_trigger("update_tsv_posts", :compatibility => 1).
-      name("update_tsv_posts").
-      on("posts").
-      before(:insert, :update) do
-    <<-SQL_ACTIONS
-new.tsv :=
-     			setweight(to_tsvector('pg_catalog.english', coalesce(new.title,'')), 'A') ||
-     			setweight(to_tsvector('pg_catalog.english', coalesce(new.body,'')), 'D');
-    SQL_ACTIONS
-  end
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute(<<-TRIGGERSQL)
+CREATE OR REPLACE FUNCTION public.posts_tsv_trigger()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+      begin
+        if (tg_op = 'INSERT') then
+          perform update_tsv_posts(new.id);
+        elsif (tg_op = 'UPDATE') then
+          if row(new) is distinct from row(old) then
+            perform update_tsv_posts(new.id);
+          end if;
+        end if;
+        return null;
+      end;
+      $function$
+  TRIGGERSQL
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute("CREATE TRIGGER update_tsv_posts_tr AFTER INSERT OR UPDATE ON posts FOR EACH ROW EXECUTE PROCEDURE posts_tsv_trigger()")
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute(<<-TRIGGERSQL)
+CREATE OR REPLACE FUNCTION public.update_tsv_tags()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+      DECLARE
+        rec record;
+      BEGIN
+
+        if (tg_op = 'DELETE') then
+          select *
+          into rec
+          from posts
+          where posts.id = old.taggable_id;
+        else
+          select *
+          into rec
+          from posts
+          where posts.id = new.taggable_id;
+        end if;
+
+        perform update_tsv_posts(rec.id);
+
+        RETURN NULL;
+      END;
+      $function$
+  TRIGGERSQL
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute("CREATE TRIGGER update_tsv_tags_tr AFTER INSERT OR DELETE OR UPDATE ON taggings FOR EACH ROW EXECUTE PROCEDURE update_tsv_tags()")
 
 end
