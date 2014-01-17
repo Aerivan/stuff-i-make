@@ -3,7 +3,7 @@
 
 
 form action=(root_url) method='get' id='search'
-	input name='query' type='text' value=(params[:query].blank? ? 'Search' : params[:query]) class='search-box'
+	input name='query' type='text' value=(params[:query]) class='search-box' placeholder="Search"
 
 ul.posts.container
 	- for post in @posts do
