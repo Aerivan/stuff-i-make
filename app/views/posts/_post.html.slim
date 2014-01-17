@@ -1,3 +1,7 @@
 h1 == link_to post.title, post
 p.created_at = post.created_at
+ul.tags
+	- for tag in post.tag_list
+		li.tag = link_to tag, (root_url + "?query=#{tag}")
+		
 == post.body

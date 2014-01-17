@@ -12,7 +12,7 @@ def self.up
         from
           (select posts.id,
             setweight(to_tsvector(coalesce(posts.title, '')), 'A')
-              || setweight(to_tsvector(coalesce(posts.body, '')), 'C')
+              || setweight(to_tsvector(coalesce(posts.body, '')), 'D')
               || setweight(to_tsvector(coalesce(string_agg(tags.name, ' '), '')), 'B')
                   as weighted_tsv
           from posts

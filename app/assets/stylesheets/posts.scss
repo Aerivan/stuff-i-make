@@ -14,17 +14,15 @@
 	border-radius: 1em;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
-	background: #f8f8f8;
 	color: #ccc;
 	border: none;
 	outline: none;
+	&:hover {
+		box-shadow: 0 0 0.3em white;
+	}
 
 	&:focus {
-		background: white;
 		color: $text-color;
-	}
-	&:hover {
-		background: white;
 	}
 }
 
@@ -49,6 +47,30 @@
 
 	h1 {
 		margin-top: 0.2em;
+	}
+
+	.tags {
+		padding: 0;
+
+		.tag {
+			display: inline-block;
+			padding-right: 0.5em;
+			margin: 0;
+
+			&:last-child {
+				padding-right: 0;
+			}
+
+			a {
+				text-decoration: none;
+				color: $text-color;
+
+				&:hover {
+					color: $link-color;
+				}
+
+			}
+		}
 	}
 }
 

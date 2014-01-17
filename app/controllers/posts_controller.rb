@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 			posts = posts.published
 		end
 
-		@posts = posts.paginate(page: params[:page], per_page: 3)
+		@posts = posts.paginate(page: params[:page], per_page: 3).previews
 	end
 
 	# GET /posts/1
