@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: stuff-i-make_development
   pool: 5
-  username: boreas
-  password: hejkonbacon
+  username: vind
+  #password: hejkonbacon
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +48,5 @@ test:
   encoding: unicode
   database: stuff-i-make_test
   pool: 5
-  username: boreas
-  password: hejkonbacon
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: stuff-i-make_production
-  pool: 5
-  username: boreas
-  password: hejkonbacon
+  username: vind
+  #password: hejkonbacon

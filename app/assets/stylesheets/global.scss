@@ -58,6 +58,10 @@ h1 a {
 	@include alert(springgreen);
 }
 
+img {
+	width: 100%;
+}
+
 #actions {
 	font-size: 1.3em;
 	background: #222;
@@ -71,5 +75,15 @@ h1 a {
 	a {
 		color: white;
 		text-decoration: none;
+		padding-right: 0.5em;
+		padding-left: 0.5em;
+		border-right: 1px solid white;
+		&:first-child {
+			padding-left: 0;
+		}
+		&:last-child {
+			padding-right: 0;
+			border-right: none;
+		}
 	}
 }

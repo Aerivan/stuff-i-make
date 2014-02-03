@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post, html: { multipart: true } do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -21,6 +21,24 @@
     <%= f.label :published %><br>
     <%= f.check_box :published %>
   </div>
+
+
+  <div class="field">
+    <!-- @post.uploads.new -->
+
+
+
+    <%= f.fields_for :uploads, (@post.uploads) do |uf| %>
+
+      <%= image_tag uf.object.file.url if uf.object.file? %>
+      Remove: <%= uf.check_box :_destroy %>
+    <% end %>
+
+    <%= f.fields_for :uploads, (@post.uploads.new) do |uf| %>
+      <%= uf.file_field :file %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

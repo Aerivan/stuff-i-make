@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116235026) do
+ActiveRecord::Schema.define(version: 20140117221004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20140116235026) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.tsvector "tsv"
+    t.integer  "upload_id"
   end
 
   add_index "posts", ["tsv"], name: "index_posts_on_tsv", using: :gin
+  add_index "posts", ["upload_id"], name: "index_posts_on_upload_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -44,6 +46,20 @@ ActiveRecord::Schema.define(version: 20140116235026) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "uploads", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "post_id"
+  end
+
+  add_index "uploads", ["post_id"], name: "index_uploads_on_post_id", using: :btree
 
   # no candidate create_trigger statement could be found, creating an adapter-specific one
   execute(<<-TRIGGERSQL)
