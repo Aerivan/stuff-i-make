@@ -35,6 +35,7 @@ gem 'flowtype-rails'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
+gem 'ace-rails-ap'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

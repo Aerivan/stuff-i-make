@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require expanding
 //= require flowtype
+//= require ace/ace
+//= require ace/theme-monokai.js
+//= require ace/mode-html.js
 //= require turbolinks
 
 //= require layout

@@ -90,7 +90,8 @@
 		margin: 0 auto;
 		padding-bottom: 2em;
 
-		textarea, .textareaClone {
+
+		/*textarea, .textareaClone {
 			width: 100%;
 			line-height: 1em;
 
@@ -101,13 +102,23 @@
 			white-space: pre-wrap;
 			word-wrap: break-word;
 			overflow: hidden;
-		}
+		}*/
 	}
 
 	.field.title {
 		textarea, .textareaClone {
 			font-size: 2em;
 			min-height: 2em;
+			width: 100%;
+			line-height: 1em;
+
+			background: white;
+			border: none;
+			resize: none;
+
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			overflow: hidden;
 		}
 	}
 	.field.body {
