@@ -1,7 +1,14 @@
 h1 == link_to post.title, post
-p.created_at = post.created_at
+
+- if !post.uploads[0].nil? && post.uploads[0].file?
+	= link_to image_tag(post.uploads[0].file.url), post, class: :image_link
+
+== post.body
+
 ul.tags
 	- for tag in post.tag_list
 		li.tag = link_to tag, (root_url + "?query=#{tag}")
+
+p.created_at = post.created_at
 		
-== post.body
+= link_to "Read more", post, class: "button readmore"
