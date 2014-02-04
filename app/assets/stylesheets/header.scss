@@ -5,7 +5,7 @@ header {
 	$top-banner-size: 6em;
 
 	div#background {
-		background: $dark-bg-color;
+		background: $cBgDark;
 		height: $top-banner-size;
 	}
 
@@ -26,7 +26,6 @@ header {
 	}
 
 	h1, h2 {
-		background: $light-bg-color;
 		margin: 0;
 	}
 
@@ -57,7 +56,7 @@ header {
 	.header-link {
 		cursor: pointer;
 		&:hover {
-			color: $link-color;
+			color: $cLinkHover;
 		}
 	}
 }

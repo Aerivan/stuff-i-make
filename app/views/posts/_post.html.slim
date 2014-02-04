@@ -4,11 +4,12 @@ h1 == link_to post.title, post
 	= link_to image_tag(post.uploads[0].file.url), post, class: :image_link
 
 == post.body
-
+		
 ul.tags
+	li.tag Tagged as: 
 	- for tag in post.tag_list
 		li.tag = link_to tag, (root_url + "?query=#{tag}")
 
-p.created_at = post.created_at
-		
+p.published_at = "Published #{time_ago_in_words(post.created_at)} ago."
+
 = link_to "Read more", post, class: "button readmore"

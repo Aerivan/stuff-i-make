@@ -5,7 +5,7 @@
 #search {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
-	margin-bottom: 2em;
+	margin-bottom: 2.5em;
 }
 .search-box {
 	box-sizing: border-box;
@@ -22,7 +22,7 @@
 	}
 
 	&:focus {
-		color: $text-color;
+		color: $cText;
 	}
 }
 
@@ -46,7 +46,7 @@
 	//padding-right: 0.5em;
 	padding-bottom: 1em;
 
-	>p, >h1, >h2, >h3, >h4, >h5, >h6, >ul.tags, >a:empty {
+	>p, >h1, >h2, >h3, >h4, >h5, >h6, >ul.tags, >a.readmore {
 		margin-left: 2%;
 		margin-right: 2%;
 	}
@@ -69,18 +69,19 @@
 
 			a {
 				text-decoration: none;
-				color: #989888;
+				//color: goldenrod;
 
 				&:hover {
-					color: $link-color;
+					//color: $cLink;
 				}
 
 			}
 		}
 	}
 
-	.created_at {
-		color: #989888;
+	.published_at {
+		//color: #989890;
+		margin-top: 0.8em;
 	}
 
 }

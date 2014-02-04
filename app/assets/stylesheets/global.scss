@@ -1,16 +1,28 @@
 body {
-	color: $text-color;
-	background: $light-bg-color;
+	color: $cText;
+	background: $cBgLight;
 	font-family: helvetica, sans;
 	font-size: 16px;
 	margin: 0;
 	overflow: auto;
 }
 
+*::selection {
+	background: salmon;
+	color: black;
+}
+
 h1, h2, h3, h4, p {line-height: 1em;}
 h1 {font-size: 3em;}
 h2 {font-size: 2em;}
 h3 {font-size: 1.5em;}
+
+a {
+	color: goldenrod;
+	&:hover {
+		color: darkcyan;
+	}
+}
 
 .container {
 	overflow: auto;
@@ -26,10 +38,10 @@ h1 {
 
 h1 a {
 	text-decoration: none;
-	color: $text-color;
+	color: $cText;
 
 	&:hover {
-		color: $link-color;
+		color: $cLinkHover;
 	}
 }
 
@@ -72,6 +84,8 @@ img {
 
 	&:hover {
 		background: lighten(black, 10);
+		background: $cLinkHover;
+		color: white;
 	}
 }
 
@@ -97,6 +111,9 @@ img {
 		&:last-child {
 			padding-right: 0;
 			border-right: none;
+		}
+		&:hover {
+			color: $cLinkHover;
 		}
 	}
 }
