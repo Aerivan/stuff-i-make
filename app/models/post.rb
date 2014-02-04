@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 	acts_as_taggable
 
 	has_many :uploads, dependent: :destroy
-	accepts_nested_attributes_for :uploads, reject_if: :no_file? , allow_destroy: true
+	accepts_nested_attributes_for :uploads, reject_if: :all_blank , allow_destroy: true
 
 	default_scope { order(created_at: :desc) }
 	scope :published, -> { where(published: true) }
@@ -18,8 +18,4 @@ class Post < ActiveRecord::Base
 				tsvector_column: 'tsv'
 			}
 		}
-
-	def no_file?(attr)
-		attr[:file].nil?
-	end
 end
